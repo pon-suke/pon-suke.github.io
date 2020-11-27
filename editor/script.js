@@ -143,7 +143,7 @@ save.addEventListener('click', () => {
         });
         $.ajax({
             method: 'POST',
-            url: 'https://script.google.com/macros/s/AKfycbwUac0ElurSoUpRNpduWY_4JDF_yeeWLQSwBk_DIsI/dev',
+            url: 'https://script.google.com/macros/s/AKfycbwmPFY303UqYqixiT7OwECIIfmbYhiVGjJ4zwZ62bw_Q_lp1PE/exec',
             data: {
                 title: localStorage.getItem("title"),
                 subTitle: localStorage.getItem("subTitle"),
