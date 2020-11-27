@@ -1,0 +1,32 @@
+.article-box {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  max-width: 800px;
+}
+
+.btn-square {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 2px 5px;
+  text-decoration: none;
+  background: #668ad8; /*ボタン色*/
+  color: #fff;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  width: 40%;
+  max-width: 300px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px); /*下に動く*/
+  border-bottom: none; /*線を消す*/
+}
+
+.article-box{
+  text-align: left;
+}
