@@ -1,3 +1,5 @@
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwmPFY303UqYqixiT7OwECIIfmbYhiVGjJ4zwZ62bw_Q_lp1PE/exec"
+
 const addMultipleEventListener = (target, eventNames, listener) => {
     const events = eventNames.split(" ");
     events.forEach(event => target.addEventListener(event, listener, false));
@@ -80,7 +82,7 @@ var hoge;
 const getArticle = new Promise((resolve) => {
     $.ajax({
         method: 'POST',
-        url: 'https://script.google.com/macros/s/AKfycbwmPFY303UqYqixiT7OwECIIfmbYhiVGjJ4zwZ62bw_Q_lp1PE/exec',
+        url: GAS_URL,
         data: {
             request: 'getAll',
         },
