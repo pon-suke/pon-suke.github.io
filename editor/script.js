@@ -72,6 +72,7 @@ $(window).on('load', function () {
 const editorCheck = document.getElementById('editor')
 addMultipleEventListener(editorCheck, "input paste", () => {
     editor.save().then((data) => {
+        console.log(data)
         let title = ""
         let subTilte = ""
         let text = ""
@@ -81,7 +82,7 @@ addMultipleEventListener(editorCheck, "input paste", () => {
             // listいる？
             switch (e.type) {
                 case "paragraph":
-                    text += e.data.text + "\n"
+                    text += e.data.text + "\r\n"
                     break;
                 case "header":
                     let i = e.data.level
@@ -103,13 +104,13 @@ addMultipleEventListener(editorCheck, "input paste", () => {
                 // base64形式の場合、処理を考える
                 case "image":
                     if (!e.data.file.url.match(new RegExp('data.*base64,'))) {
-                        text += "$image" + cnt++
+                        text += "$image" + cnt++ + "$"
                         img += e.data.file.url + ','
                     }
                     break;
                 case "sImage":
                     if (!e.data.url.match(new RegExp('data.*base64,'))) {
-                        text += "$image" + cnt++
+                        text += "$image" + cnt++ + "$"
                         img += e.data.url + ','
                     }
                     break;
@@ -143,7 +144,7 @@ save.addEventListener('click', () => {
         });
         $.ajax({
             method: 'POST',
-            url: 'https://script.google.com/macros/s/AKfycbwmPFY303UqYqixiT7OwECIIfmbYhiVGjJ4zwZ62bw_Q_lp1PE/exec',
+            url: GAS_URL,
             data: {
                 title: localStorage.getItem("title"),
                 subTitle: localStorage.getItem("subTitle"),
