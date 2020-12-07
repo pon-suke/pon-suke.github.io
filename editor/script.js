@@ -82,7 +82,7 @@ addMultipleEventListener(editorCheck, "input paste", () => {
             // listいる？
             switch (e.type) {
                 case "paragraph":
-                    text += e.data.text + "\r\n"
+                    text += e.data.text + "\r\n\r\n"
                     break;
                 case "header":
                     let i = e.data.level
