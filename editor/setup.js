@@ -111,10 +111,17 @@ const getArticleCallback = (data) => {
     saveData.blocks[1] = { type: "header", data: { level: 3, text: preData.subTitle } }
     let i = 2
     const imgPattern = /image[\d]{1}/
+    const tag_hr = /<hr>/
     preData.main.split('$').forEach(e => {
         if (imgPattern.test(e)) {
             let imgNum = e.match(/[\d]{1}/)
             saveData.blocks[i++] = { type: "sImage", data: { url: preData.images[imgNum] } }
+        } else if (/*hrタグが含まれているか*/tag_hr.test(e)) {
+            e.split("<hr>").forEach(t => {
+                saveData.blocks[i++] = { type: "paragraph", data: { text: t } }
+                saveData.blocks[i++] = { type: "delimiter", data: {} }
+            })
+            saveData.blocks.pop()
         } else
             saveData.blocks[i++] = { type: "paragraph", data: { text: e } }
     })
